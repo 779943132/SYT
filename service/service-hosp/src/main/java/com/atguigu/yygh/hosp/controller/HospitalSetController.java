@@ -1,6 +1,6 @@
 package com.atguigu.yygh.hosp.controller;
 
-import com.atguigu.yygh.common.rseult.Result;
+import com.atguigu.yygh.common.result.Result;
 import com.atguigu.yygh.common.utils.MD5;
 import com.atguigu.yygh.model.hosp.HospitalSet;
 import com.atguigu.yygh.hosp.service.HospitalSetService;
@@ -19,6 +19,7 @@ import java.util.Random;
 @RestController
 @Api(tags = "医院设置管理")
 @RequestMapping("/admin/hosp/hospitalSet")
+@CrossOrigin //允许跨域访问
 public class HospitalSetController {
     @Autowired
     private HospitalSetService hospitalSetService;
@@ -33,7 +34,7 @@ public class HospitalSetController {
     }
     //逻辑删除医院设置
     @ApiOperation(value = "根据id逻辑删除医院设置")
-    @DeleteMapping("{id}")
+    @DeleteMapping("hospitalSet/{id}")
     public Result removeHospSet(@PathVariable Long id){
         boolean b = hospitalSetService.removeById(id);
         if (b){

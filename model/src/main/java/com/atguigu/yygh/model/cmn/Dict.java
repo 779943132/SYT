@@ -63,7 +63,7 @@ public class Dict {
     private String dictCode;
 
     @ApiModelProperty(value = "是否包含子节点")
-    @TableField(exist = false)
+    @TableField(exist = false)//表中不存在
     private boolean hasChildren;
 
 }

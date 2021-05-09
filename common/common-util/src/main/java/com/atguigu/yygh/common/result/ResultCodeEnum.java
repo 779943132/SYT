@@ -1,4 +1,4 @@
-package com.atguigu.yygh.common.rseult;
+package com.atguigu.yygh.common.result;
 
 import lombok.Getter;
 

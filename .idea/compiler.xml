@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="service-cmn" />
         <module name="common-util" />
         <module name="model" />
         <module name="service-util" />
@@ -18,6 +19,7 @@
       <module name="common-util" target="1.8" />
       <module name="model" target="1.8" />
       <module name="service" target="1.8" />
+      <module name="service-cmn" target="1.8" />
       <module name="service-hosp" target="1.8" />
       <module name="service-util" target="1.8" />
       <module name="yygh-parent" target="1.8" />
@@ -29,6 +31,7 @@
       <module name="common-util" options="-parameters" />
       <module name="model" options="-parameters" />
       <module name="service" options="-parameters" />
+      <module name="service-cmn" options="-parameters" />
       <module name="service-hosp" options="-parameters" />
       <module name="service-util" options="-parameters" />
       <module name="yygh-parent" options="-parameters" />

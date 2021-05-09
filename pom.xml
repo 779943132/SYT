@@ -9,6 +9,7 @@
         <module>model</module>
         <module>service</module>
         <module>service/service-hosp</module>
+        <module>service/service-cmn</module>
     </modules>
 
     <parent>
