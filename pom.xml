@@ -10,6 +10,7 @@
         <module>service</module>
         <module>service/service-hosp</module>
         <module>service/service-cmn</module>
+        <module>hospital-manage</module>
     </modules>
 
     <parent>
