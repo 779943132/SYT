@@ -1,5 +1,6 @@
 package com.hosptest.hospital.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hosptest.hospital.mapper.HospitalSetMapper;
 import com.hosptest.hospital.model.HospitalSet;
 import com.hosptest.hospital.service.ApiService;
@@ -45,7 +46,7 @@ public class ApiController extends BaseController {
 		hospitalSetMapper.updateById(hospitalSet);
 		return "redirect:/hospitalSet/index";
 	}
-
+	//医院设置管理
 	@RequestMapping("/hospital/index")
 	public String getHospital(ModelMap model,HttpServletRequest request,RedirectAttributes redirectAttributes) {
 		try {
@@ -54,7 +55,8 @@ public class ApiController extends BaseController {
 				this.failureMessage("先设置医院code与签名key", redirectAttributes);
 				return "redirect:/hospitalSet/index";
 			}
-
+			JSONObject hospital = apiService.getHospital();
+			System.out.println(hospital);
 			model.addAttribute("hospital", apiService.getHospital());
 		} catch (YyghException e) {
 			this.failureMessage(e.getMessage(), request);
