@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  * @author qy
  */
-@EnableTransactionManagement
+//@EnableTransactionManagement
 @Configuration
 @MapperScan("com.atguigu.hospital.mapper")
 public class MybatisPlusConfig {
@@ -30,10 +30,10 @@ public class MybatisPlusConfig {
         return paginationInterceptor;
     }
 
-    @Bean
+    /*@Bean
     public ISqlInjector sqlInjector() {
         return new LogicSqlInjector();
-    }
+    }*/
 
     /**
      * SQL执行效率插件

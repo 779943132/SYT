@@ -39,4 +39,25 @@ public class DictController {
     public void importExportDict(MultipartFile file){
         dictService.importExport(file);
     }
+
+    //根据dictcode和valu值查询
+    @ApiOperation("根据dictCode和value查询等级")
+    @GetMapping("getName/{dictCode}/{value}")
+    public String getName(@PathVariable String dictCode ,@PathVariable int value){
+        return dictService.getDictName(dictCode,value);
+    }
+    //根据vaue查询
+    @ApiOperation("根据value查询等级")
+    @GetMapping("getName/{value}")
+    public String getName(@PathVariable int value){
+        return dictService.getDictName("",value);
+    }
+    //根据dictCode查询下级节点
+    @ApiOperation("根据dictCode查询下级节点")
+    @GetMapping("findByDictCode/{dictCode}")
+    public Result findByDictCode(@PathVariable String dictCode){
+       List<Dict> list= dictService.findByDictCode(dictCode);
+       return Result.ok(list);
+    }
+
 }

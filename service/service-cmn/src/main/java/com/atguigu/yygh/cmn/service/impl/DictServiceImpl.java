@@ -13,10 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.Writer;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,7 +36,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
     //获取id下面的子数据
     @Cacheable(value = "dict",keyGenerator = "keyGenerator")//key的命名
     public List<Dict> findChlidData(Long id) {
-        QueryWrapper<Dict> qw = new QueryWrapper();
+        QueryWrapper<Dict> qw = new QueryWrapper<>();
         qw.eq("parent_id",id);
         List<Dict> dicts = baseMapper.selectList(qw);
         //设置setHasChildren的值
@@ -86,11 +88,37 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
 
     //判断id下面是否有字节点
     private boolean isChlidren(Long id){
-        QueryWrapper<Dict> qw = new QueryWrapper();
+        QueryWrapper<Dict> qw = new QueryWrapper<>();
         qw.eq("parent_id",id);
         //得到查询数据的数量
         Integer integer = baseMapper.selectCount(qw);
         //如果integer>0下面成立就返回true,如果integer<=0,下面不成立返回false
         return integer>0;
+    }
+
+    @Override
+    public String getDictName(String dictCode, int value) {
+        if (StringUtils.isEmpty(dictCode)) {
+            QueryWrapper<Dict> qw = new QueryWrapper<>();
+            qw.eq("value",value);
+            Dict dict = baseMapper.selectOne(qw);
+            return dict.getName();
+        }else {
+            QueryWrapper<Dict> qw = new QueryWrapper<>();
+            //根据dictcode查询
+            qw.eq("dict_code",dictCode);
+            Dict dict1 = baseMapper.selectOne(qw);
+            //得到查出来的id,并作为第二次查询的条件
+            Dict dict = baseMapper.selectOne(new QueryWrapper<Dict>().eq("parent_id",dict1.getId()).eq("value",value));
+            return dict.getName();
+        }
+    }
+
+    @Override
+    public List<Dict> findByDictCode(String dictCode) {
+        QueryWrapper<Dict> qw = new QueryWrapper<>();
+        qw.eq("dict_code",dictCode);
+        Dict dict = baseMapper.selectOne(qw);
+        return baseMapper.selectList(new QueryWrapper<Dict>().eq("parent_id",dict.getId()));
     }
 }

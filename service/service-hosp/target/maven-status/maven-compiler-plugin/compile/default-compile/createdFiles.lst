@@ -1,10 +1,17 @@
 com\atguigu\yygh\hosp\service\HospitalSetService.class
+com\atguigu\yygh\hosp\repository\DepartmentRepository.class
+com\atguigu\yygh\hosp\service\impl\ScheduleServiceImpl.class
 com\atguigu\yygh\hosp\controller\HospitalSetController.class
 com\atguigu\yygh\hosp\ServiceHospApplication.class
 com\atguigu\yygh\hosp\mapper\HospitalSetMapper.class
+com\atguigu\yygh\hosp\service\DepartmentService.class
 com\atguigu\yygh\hosp\service\HospitalService.class
+com\atguigu\yygh\hosp\service\ScheduleService.class
+com\atguigu\yygh\hosp\controller\HospitalController.class
 com\atguigu\yygh\hosp\repository\HospitalRepository.class
 com\atguigu\yygh\hosp\service\impl\HospitalServiceImpl.class
 com\atguigu\yygh\hosp\service\impl\HospitalSetServiceImpl.class
 com\atguigu\yygh\hosp\config\HospConfig.class
+com\atguigu\yygh\hosp\service\impl\DepartmentServiceImpl.class
 com\atguigu\yygh\hosp\controller\api\ApiController.class
+com\atguigu\yygh\hosp\repository\ScheduleRepository.class

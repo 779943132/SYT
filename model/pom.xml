@@ -16,9 +16,12 @@
     <name>model</name>
     <description>model</description>
     <dependencies>
+        <!--Lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.14</version>
+            <scope>provided</scope>
         </dependency>
         <!--mybatis-plus-->
         <dependency>

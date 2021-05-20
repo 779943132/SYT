@@ -1,8 +1,8 @@
 server:
   port: 9998
 mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #configuration:
+   # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:mapper/*.xml
 spring:
   thymeleaf:
@@ -33,7 +33,7 @@ spring:
     password: jiachenlin
     hikari:
       connection-test-query: SELECT 1
-      connection-timeout: 60000
+      connection-timeout: 600000
       idle-timeout: 500000
       max-lifetime: 540000
       maximum-pool-size: 12

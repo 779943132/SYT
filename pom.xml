@@ -11,6 +11,8 @@
         <module>service/service-hosp</module>
         <module>service/service-cmn</module>
         <module>hospital-manage</module>
+        <module>service-client</module>
+        <module>service-client/service-cmn-client</module>
     </modules>
 
     <parent>
