@@ -10,6 +10,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="service-cmn" />
         <module name="common-util" />
+        <module name="service-gateway" />
         <module name="service-cmn-client" />
         <module name="model" />
         <module name="service-util" />
@@ -26,6 +27,7 @@
       <module name="service-client" target="1.8" />
       <module name="service-cmn" target="1.8" />
       <module name="service-cmn-client" target="1.8" />
+      <module name="service-gateway" target="1.8" />
       <module name="service-hosp" target="1.8" />
       <module name="service-util" target="1.8" />
       <module name="yygh-parent" target="1.8" />
@@ -41,6 +43,7 @@
       <module name="service-client" options="-parameters" />
       <module name="service-cmn" options="-parameters" />
       <module name="service-cmn-client" options="-parameters" />
+      <module name="service-gateway" options="-parameters" />
       <module name="service-hosp" options="-parameters" />
       <module name="service-util" options="-parameters" />
       <module name="yygh-parent" options="-parameters" />

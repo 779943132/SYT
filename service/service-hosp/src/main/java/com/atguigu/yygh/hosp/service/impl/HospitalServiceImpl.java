@@ -13,6 +13,7 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -87,5 +88,64 @@ public class HospitalServiceImpl implements HospitalService {
             hospital.getParam().put("fullAddress",pravinceCode+cityCode+districtCode);
         }
         return pages;
+    }
+
+    @Override
+    public void updateHospStatus(String id, Integer status) {
+        Hospital hospital = hospitalRepository.findById(id).get();
+        hospital.setStatus(status);
+        hospital.setUpdateTime(new Date());
+        hospitalRepository.save(hospital);
+    }
+
+    @Override
+    public Map<String,Object> showHospDetail(String id) {
+        Hospital hospital = hospitalRepository.findById(id).get();
+        String hostype = hospital.getHostype();
+        //根据dicode和value查询医院等级
+        String hostype1 = dictFeignClient.getName("Hostype", Integer.parseInt(hostype));
+        hospital.getParam().put("hostypeString",hostype1);
+        String pravinceCode = dictFeignClient.getName(Integer.parseInt(hospital.getProvinceCode()));
+        String cityCode = dictFeignClient.getName(Integer.parseInt(hospital.getCityCode()));
+        String districtCode = dictFeignClient.getName(Integer.parseInt(hospital.getDistrictCode()));
+        //医院地址
+        hospital.getParam().put("fullAddress",pravinceCode+cityCode+districtCode);
+        Map<String,Object> hosp = new HashMap<>();
+        hosp.put("hospital",hospital);
+        hosp.put("bookingRule",hospital.getBookingRule());
+        return hosp;
+    }
+
+    @Override
+    public String getHoscodeName(String hoscode) {
+        Hospital hospitalByHoscode = hospitalRepository.getHospitalByHoscode(hoscode);
+        if (hospitalByHoscode != null) {
+            return   hospitalByHoscode.getHosname();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Hospital> findByHosName(String hosname) {
+
+        return hospitalRepository.findHospitalByHosnameLike(hosname);
+    }
+
+    @Override
+    public Map<String, Object> item(String hoscode) {
+        Hospital hospital = hospitalRepository.getHospitalByHoscode(hoscode);
+        String hostype = hospital.getHostype();
+        //根据dicode和value查询医院等级
+        String hostype1 = dictFeignClient.getName("Hostype", Integer.parseInt(hostype));
+        hospital.getParam().put("hostypeString",hostype1);
+        String pravinceCode = dictFeignClient.getName(Integer.parseInt(hospital.getProvinceCode()));
+        String cityCode = dictFeignClient.getName(Integer.parseInt(hospital.getCityCode()));
+        String districtCode = dictFeignClient.getName(Integer.parseInt(hospital.getDistrictCode()));
+        //医院地址
+        hospital.getParam().put("fullAddress",pravinceCode+cityCode+districtCode);
+        Map<String,Object> hosp = new HashMap<>();
+        hosp.put("hospital",hospital);
+        hosp.put("bookingRule",hospital.getBookingRule());
+        return hosp;
     }
 }

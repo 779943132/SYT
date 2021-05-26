@@ -1,0 +1,10 @@
+2021-05-20 18:55:17,472 INFO DEFAULT_GROUP@@service-hosp {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8201:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-20 18:55:17,475 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-hosp, ips: 192.168.1.204:8201_true,
+
+2021-05-20 18:55:30,134 INFO DEFAULT_GROUP@@service-cmn {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8202:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-20 18:55:30,134 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-cmn, ips: 192.168.1.204:8202_true,
+
+2021-05-20 19:27:19,849 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-hosp, ips: 192.168.1.204:8201_true,
+

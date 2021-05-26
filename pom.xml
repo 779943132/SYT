@@ -13,6 +13,7 @@
         <module>hospital-manage</module>
         <module>service-client</module>
         <module>service-client/service-cmn-client</module>
+        <module>service-gateway</module>
     </modules>
 
     <parent>

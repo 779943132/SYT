@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @Api(tags = "医院信息")
 @RequestMapping("admin/hosp/hospital")
-@CrossOrigin
 public class HospitalController {
     @Autowired
     private HospitalService hospitalService;
@@ -24,5 +25,18 @@ public class HospitalController {
         Page<Hospital> pagelist = hospitalService.selectHospPage(page,limit,hospitalQueryVo);
         return Result.ok(pagelist);
     }
+    @ApiOperation(value = "更新上线装态")
+    @GetMapping("updateHospStatus/{id}/{status}")
+    public Result updateHospStatus(@PathVariable String id,@PathVariable Integer status){
+        hospitalService.updateHospStatus(id,status);
+        return Result.ok();
+    }
+    @ApiOperation(value = "医院详情信息")
+    @GetMapping("showHospDetail/{id}")
+    public Result showHospDetail(@PathVariable String id){
+        Map<String,Object> hospital = hospitalService.showHospDetail(id);
+        return Result.ok(hospital);
+    }
+
 
 }
