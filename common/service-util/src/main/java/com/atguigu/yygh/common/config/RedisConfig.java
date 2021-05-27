@@ -30,17 +30,21 @@ public class RedisConfig {
      */
     @Bean
     public KeyGenerator keyGenerator() {
-        return new KeyGenerator() {
-            @Override
-            public Object generate(Object target, Method method, Object... params) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(target.getClass().getName());
-                sb.append(method.getName());
-                for (Object obj : params) {
-                    sb.append(obj.toString());
-                }
-                return sb.toString();
+        /**
+         * target：当前对象
+         * method：当前方法
+         * params：传入的参数->keyGenerator = "keyGenerator"
+         */
+        return (target, method, params) -> {
+            StringBuilder sb = new StringBuilder();
+            //将当前被调用的目标对象class名字得到
+            sb.append(target.getClass().getName());
+            //得到方法名
+            sb.append(method.getName());
+            for (Object obj : params) {
+                sb.append(obj.toString());
             }
+            return sb.toString();
         };
     }
 
