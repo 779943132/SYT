@@ -12,6 +12,9 @@
     <artifactId>service</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
+    <modules>
+        <module>service-user</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>com.atguigu.yygh</groupId>
@@ -59,6 +62,15 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <!--邮箱服务-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+        <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+
+
         <!-- 流量控制 -->
         <!--<dependency>
             <groupId>com.alibaba.cloud</groupId>

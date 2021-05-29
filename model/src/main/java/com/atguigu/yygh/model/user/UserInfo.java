@@ -18,9 +18,9 @@ import lombok.Data;
 @ApiModel(description = "UserInfo")
 @TableName("user_info")
 public class UserInfo extends BaseEntity {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@ApiModelProperty(value = "微信openid")
 	@TableField("openid")
 	private String openid;
@@ -29,9 +29,9 @@ public class UserInfo extends BaseEntity {
 	@TableField("nick_name")
 	private String nickName;
 
-	@ApiModelProperty(value = "手机号")
-	@TableField("phone")
-	private String phone;
+	@ApiModelProperty(value = "邮箱")
+	@TableField("email")
+	private String email;
 
 	@ApiModelProperty(value = "用户姓名")
 	@TableField("name")

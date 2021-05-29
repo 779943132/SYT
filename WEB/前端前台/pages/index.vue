@@ -34,13 +34,14 @@
             <div class="filter-wrapper">
               <span class="label">等级：</span>
               <div class="condition-wrapper">
-                <span class="item v-link clickable" :class="hostypeActiveIndex == index ? 'selected' : ''" v-for="(item,index) in hostypeList" :key="item.id" @click="hostypeSelect(item.value, index)">{{ item.name }}</span>
+                <span class="item v-link clickable" :class="hostypeActiveIndex === index ? 'selected' : ''" v-for="(item,index) in hostypeList" :key="item.id" @click="hostypeSelect(item.value, index)">{{ item.name }}</span>
               </div>
             </div>
             <div class="filter-wrapper">
               <span class="label">地区：</span>
               <div class="condition-wrapper">
-                <span class="item v-link clickable" :class="provinceActiveIndex == index ? 'selected' : ''" v-for="(item,index) in districtList" :key="item.id" @click="districtSelect(item.value, index)">{{ item.name }}</span>
+                <!-- -->
+                <span class="item v-link clickable" :class="provinceActiveIndex === index ? 'selected' : ''" v-for="(item,index) in districtList" :key="item.id" @click="districtSelect(item.value, index)">{{ item.name }}</span>
               </div>
             </div>
           </div>
@@ -224,7 +225,7 @@ export  default  {
     districtSelect(districtCode,index){
       this.list = []
       this.page = 1
-      this.hostypeActiveIndex = index
+      this.provinceActiveIndex = index
       this.searchObj.districtCode = districtCode
       this.getList()
     },
@@ -241,6 +242,7 @@ export  default  {
     },
     handleSelect(item) {
       window.location.href = '/hospital/' + item.hoscode
+      //动态路由要以下划线和参数命名
     },
     //点击医院名称跳转详情
     show(hoscode) {

@@ -11,8 +11,8 @@ public class LoginVo {
     @ApiModelProperty(value = "openid")
     private String openid;
 
-    @ApiModelProperty(value = "手机号")
-    private String phone;
+    @ApiModelProperty(value = "email")
+    private String email;
 
     @ApiModelProperty(value = "密码")
     private String code;

@@ -42,6 +42,7 @@ public class HospApiController {
     public Result findex(@PathVariable String hoscode){
         return Result.ok(departmentService.getDeptList(hoscode));
     }
+
     @ApiOperation("根据医院编号获取详情信息")
     @GetMapping("findHospDetail/{hoscode}")
     public Result item(@PathVariable String hoscode){

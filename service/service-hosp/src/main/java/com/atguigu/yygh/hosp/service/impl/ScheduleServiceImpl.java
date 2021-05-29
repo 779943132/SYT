@@ -1,13 +1,19 @@
 package com.atguigu.yygh.hosp.service.impl;
 
+import com.alibaba.excel.util.CollectionUtils;
 import com.alibaba.fastjson.JSONObject;
+import com.atguigu.yygh.common.exception.YyghException;
+import com.atguigu.yygh.common.result.ResultCodeEnum;
 import com.atguigu.yygh.hosp.repository.ScheduleRepository;
 import com.atguigu.yygh.hosp.service.DepartmentService;
 import com.atguigu.yygh.hosp.service.HospitalService;
 import com.atguigu.yygh.hosp.service.ScheduleService;
+import com.atguigu.yygh.model.hosp.BookingRule;
+import com.atguigu.yygh.model.hosp.Hospital;
 import com.atguigu.yygh.model.hosp.Schedule;
 import com.atguigu.yygh.vo.hosp.BookingScheduleRuleVo;
 import com.atguigu.yygh.vo.hosp.ScheduleQueryVo;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
 import org.springframework.beans.BeanUtils;
@@ -19,10 +25,8 @@ import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ScheduleServiceImpl implements ScheduleService {
@@ -87,14 +91,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
     public Map<String, Object> getScheduleRule(int page, int limit, String hoscode, String depcode) {
-        //根据医院编号和科室编号查询
-        /*Schedule schedule =new Schedule();
-        schedule.setHoscode(hoscode);
-        schedule.setDepcode(depcode);
-        Example<Schedule> ex= Example.of(schedule);
-        List<Schedule> list = scheduleRepository.findAll(ex);*/
         //使用Template查询
         Criteria criteria = Criteria.where("hoscode").is(hoscode).and("depcode").is(depcode);
+
         //根据日期进行分组
         Aggregation agg= Aggregation.newAggregation(
                 Aggregation.match(criteria),//匹配条件
@@ -110,6 +109,8 @@ public class ScheduleServiceImpl implements ScheduleService {
                 Aggregation.skip((page-1)*limit),
                 Aggregation.limit(limit)
         );
+
+
         AggregationResults<BookingScheduleRuleVo> aggregate = mongoTemplate.aggregate(agg, Schedule.class, BookingScheduleRuleVo.class);
         List<BookingScheduleRuleVo> mappedResults = aggregate.getMappedResults();
         //分组查询总记录数
@@ -118,6 +119,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 Aggregation.group("workDate")
         );
         AggregationResults<BookingScheduleRuleVo> totalAggregate = mongoTemplate.aggregate(totalAgg, Schedule.class, BookingScheduleRuleVo.class);
+
         int size = totalAggregate.getMappedResults().size();//得到总记录数
         //把日期对应星期获取
         for (BookingScheduleRuleVo bookingScheduleRuleVo : mappedResults) {
@@ -127,14 +129,17 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         //设置最终数据
         Map<String,Object> map =new HashMap<>();
-        map.put("bookingScheduleRuleVo",mappedResults);
+        map.put("bookingScheduleRuleList",mappedResults);
         map.put("total",size);
         //获取医院名称
         String name = hospitalService.getHoscodeName(hoscode);
         Map<String,String> bashMap = new HashMap<>();
         bashMap.put("hosname",name);
-        map.put("bashMap",bashMap);
+
+        map.put("baseMap",bashMap);
+
         return map;
+
     }
 
     @Override

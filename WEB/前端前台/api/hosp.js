@@ -16,7 +16,20 @@ export default {
       url:`${api_name}/findByHosName/${hosname}`,
       method:'get'
     })
+  },
+  //根据医院编号查询详情信息
+  show(hosname){
+    return request({
+      url:`${api_name}/findHospDetail/${hosname}`,
+      method:'get'
+    })
+  },
+  //根据医院编号查询科室信息
+  findDepartment(hosname){
+    return request({
+      url:`${api_name}/department/${hosname}`,
+      method:'get'
+    })
   }
-
 
 }

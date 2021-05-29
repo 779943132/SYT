@@ -35,7 +35,11 @@
             <version>1.18.14</version>
             <scope>provided</scope>
         </dependency>
-
+        <!-- 邮箱服务       -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
         <!--swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
