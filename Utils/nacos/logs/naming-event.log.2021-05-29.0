@@ -1,0 +1,84 @@
+2021-05-29 17:06:51,229 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 17:06:51,231 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 18:01:46,950 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 18:23:19,388 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 18:23:19,388 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 
+
+2021-05-29 18:23:24,477 INFO DEFAULT_GROUP@@service-cmn {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8202:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 18:23:24,477 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-cmn, ips: 192.168.1.204:8202_true,
+
+2021-05-29 18:25:19,491 INFO {POS} {IP-DISABLED} valid: 192.168.1.204:8202@DEFAULT@DEFAULT_GROUP@@service-cmn, region: unknown, msg: client timeout after 15000, last beat: 1622283899523
+
+2021-05-29 18:25:34,747 INFO DEFAULT_GROUP@@service-cmn {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.204:8202:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-05-29 18:25:34,747 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-cmn, ips: 
+
+2021-05-29 18:25:49,719 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 18:25:49,719 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 18:26:07,186 INFO {POS} {IP-DISABLED} valid: 192.168.1.204:8203@DEFAULT@DEFAULT_GROUP@@service-user, region: unknown, msg: client timeout after 15000, last beat: 1622283949719
+
+2021-05-29 18:26:22,192 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-05-29 18:26:22,192 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 
+
+2021-05-29 18:48:15,391 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 18:48:15,391 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 18:50:27,460 INFO {POS} {IP-DISABLED} valid: 192.168.1.204:8203@DEFAULT@DEFAULT_GROUP@@service-user, region: unknown, msg: client timeout after 15000, last beat: 1622285410488
+
+2021-05-29 18:50:42,466 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-05-29 18:50:42,466 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 
+
+2021-05-29 19:25:04,536 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 19:25:04,536 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 19:25:22,844 INFO {POS} {IP-DISABLED} valid: 192.168.1.204:8203@DEFAULT@DEFAULT_GROUP@@service-user, region: unknown, msg: client timeout after 15000, last beat: 1622287504535
+
+2021-05-29 19:25:37,849 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-05-29 19:25:37,849 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 
+
+2021-05-29 19:25:42,155 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 19:25:42,155 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 19:30:07,301 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 19:30:52,266 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 19:34:35,308 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 19:36:20,943 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+
+2021-05-29 19:39:58,049 INFO {POS} {IP-DISABLED} valid: 192.168.1.204:8203@DEFAULT@DEFAULT_GROUP@@service-user, region: unknown, msg: client timeout after 15000, last beat: 1622288381076
+
+2021-05-29 19:40:13,054 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2021-05-29 19:40:13,054 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 
+
+2021-05-29 21:10:55,441 INFO DEFAULT_GROUP@@service-gateway {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:80:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 21:10:55,447 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-gateway, ips: 192.168.1.204:80_true,
+
+2021-05-29 21:11:14,676 INFO DEFAULT_GROUP@@service-hosp {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8201:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 21:11:14,676 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-hosp, ips: 192.168.1.204:8201_true,
+
+2021-05-29 21:11:30,501 INFO DEFAULT_GROUP@@service-cmn {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8202:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 21:11:30,501 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-cmn, ips: 192.168.1.204:8202_true,
+
+2021-05-29 21:11:49,497 INFO DEFAULT_GROUP@@service-user {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [192.168.1.204:8203:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2021-05-29 21:11:49,497 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@service-user, ips: 192.168.1.204:8203_true,
+

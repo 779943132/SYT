@@ -31,33 +31,42 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper,UserInfo> im
         if (StringUtils.isEmpty(email)||StringUtils.isEmpty(code)) {
             throw new YyghException(ResultCodeEnum.PARAM_ERROR);
         }
-        /*// 判断验证码是否一致
-        MyConde emailcode = new MyConde();
-        //发送验证码
-        String s = emailcode.generateVerCode();
-        Date fromDate = new Date();
-        String text= "尊敬的用户,您好:\n本次请求的邮件验证码为 "+ s+ " ,本验证码5分钟内有效，请及时输入。（请勿泄露此验证码如非本人操作，请忽略该邮件。\n(这是一封自动发送的邮件，请不要直接回复）";
-        myEmailUtils.myEmail("779943132@qq.com",email,"预约挂号验证码",text);
-        //code过期时间为1分钟，过期抛出异常*/
+        //验证码判断
         String rediscode = redisTemplate.opsForValue().get(email);
 
         if (!Objects.equals(rediscode, code)){
             throw new YyghException(ResultCodeEnum.CODE_ERROR);
         }
-
+        //绑定邮箱
+        UserInfo userInfo = null;
+        if(!StringUtils.isEmpty(loginVo.getOpenid())) {
+            userInfo = this.selectWxInfoOpenId(loginVo.getOpenid());
+            System.out.println(userInfo);
+            if(null != userInfo) {
+                    userInfo.setEmail(loginVo.getEmail());
+                    this.updateById(userInfo);
+            } else {
+                throw new YyghException(ResultCodeEnum.DATA_ERROR);
+            }
+        }
+        if (userInfo == null) {
+        QueryWrapper<UserInfo> qw = new QueryWrapper<>();
+        qw.eq("email",email);
         //判断是否为第一次登录
-        UserInfo userinfo = baseMapper.selectOne(new QueryWrapper<UserInfo>().eq("email", email));
+        userInfo = baseMapper.selectOne(qw);
+            System.out.println(userInfo);
         //为空，第一次，添加用户
-        if (userinfo == null) {
+        if (userInfo == null) {
             UserInfo data = new UserInfo();
-            data.setName(email);
+            data.setName("");
             data.setStatus(1);
             data.setEmail(email);
             baseMapper.insert(data);
-            userinfo = data;
+            userInfo = data;
+        }
         }
         //不为空，校验看权限
-        if (userinfo.getStatus()==0){
+        if (userInfo.getStatus()==0){
             throw new YyghException(ResultCodeEnum.LOGIN_DISABLED_ERROR);
         }
         //返回登录后信息
@@ -65,16 +74,23 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper,UserInfo> im
         //返回token
 
         Map<String,Object> map = new HashMap<>();
-        String name = userinfo.getName();
+        String name = userInfo.getName();
         if (StringUtils.isEmpty(name)) {
-            name = userinfo.getNickName();
+            name = userInfo.getNickName();
         }
         if (StringUtils.isEmpty(name)){
-            name=userinfo.getEmail();
+            name=userInfo.getEmail();
         }
-        String token = JwtHelper.createToken(userinfo.getId(), userinfo.getName());
+        String token = JwtHelper.createToken(userInfo.getId(), userInfo.getName());
         map.put("name",name);
         map.put("token",token);
         return map;
+    }
+
+    @Override
+    public UserInfo selectWxInfoOpenId(String openId) {
+        QueryWrapper<UserInfo> qw = new QueryWrapper<>();
+        qw.eq("openid",openId);
+        return  baseMapper.selectOne(qw);
     }
 }

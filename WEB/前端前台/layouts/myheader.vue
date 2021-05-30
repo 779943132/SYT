@@ -25,7 +25,7 @@
 
             <!-- 右侧 -->
             <div class="right-wrapper">
-
+              <span class="v-link clickable">帮助中心</span>
               <span v-if="name == ''" class="v-link clickable" @click="showLogin()" id="loginDialog">登录/注册</span>
               <el-dropdown v-if="name != ''" @command="loginMenu">
                     <span class="el-dropdown-link">
@@ -38,7 +38,7 @@
                   <el-dropdown-item command="/logout" divided>退出登录</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
-              <span class="v-link clickable">帮助中心</span>
+
           </div>
              <!-- 登录弹出层 -->
                 <el-dialog :visible.sync="dialogUserFormVisible" style="text-align: left;" top="50px" :append-to-body="true"  width="960px" @close="closeDialog()">
@@ -68,19 +68,19 @@
           <!-- 邮箱登录 #end -->
 
           <!-- 微信登录 #start -->
-          <div class="operate-view"  v-if="dialogAtrr.showLoginType === 'weixin'" >
-            <div class="wrapper wechat" style="height: 400px">
-              <div>
-                <div id="weixinLogin"></div>
-              </div>
-              <div class="bottom wechat" style="margin-top: -80px;">
-                <div class=" email-container">
-                  <div class=" email-wrapper"  @click=" emailLogin()"><span
-                    class="iconfont icon"></span></div>
-                  <span class="third-text"> 手机短信验证码登录 </span></div>
-              </div>
-            </div>
-          </div>
+                    <div class="operate-view" v-if="dialogAtrr.showLoginType === 'weixin'" >
+                      <div class="wrapper wechat" style="height: 400px">
+                        <div>
+                          <div id="weixinLogin"></div>
+                        </div>
+                        <div class="bottom wechat" style="margin-top: -80px;">
+                          <div class="phone-container">
+                            <div class="phone-wrapper"  @click="emailLogin()"><span
+                              class="iconfont icon"></span></div>
+                            <span class="third-text"> 邮箱验证码登录 </span></div>
+                        </div>
+                      </div>
+                    </div>
           <!-- 微信登录 #end -->
 
           <div class="info-wrapper">
@@ -113,6 +113,7 @@ import Vue from 'vue'
 
 import userInfoApi from '@/api/UserInfo'
 import hospitalApi from '@/api/hosp'
+import weixin from "@/api/weixin";
 
 const defaultDialogAtrr = {
   showLoginType: 'email', // 控制手机登录与微信登录切换
@@ -148,6 +149,26 @@ export default {
 
   created() {
     this.showInfo()
+  },//在页面加载之后执行
+  mounted() {
+    // 注册全局登录事件对象
+    window.loginEvent = new Vue();
+    // 监听登录事件
+    loginEvent.$on('loginDialogEvent', function () {
+      document.getElementById("loginDialog").click();
+    })
+  // 触发事件，显示登录层：loginEvent.$emit('loginDialogEvent')
+    //初始化微信js
+    const script = document.createElement('script')
+    script.type = 'text/javascript'
+    script.src = 'https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js'
+    document.body.appendChild(script)
+
+    // 微信登录回调处理
+    let self = this;
+    window["loginCallback"] = (name,token, openid) => {
+      self.loginCallback(name, token, openid);
+    }
   },
   methods: {
     // 绑定登录或获取验证码按钮
@@ -283,11 +304,31 @@ export default {
 
     weixinLogin() {
       this.dialogAtrr.showLoginType = 'weixin'
+      weixin.getLoginParam().then(response=>{
+        var obj = new WxLogin({
+          self_redirect:true,
+          id: 'weixinLogin', // 需要显示的容器id
+          appid: response.data.appid, // 公众号appid wx*******
+          scope: response.data.scope, // 网页默认即可
+          redirect_uri: response.data.redirect_uri, // 授权成功后回调的url
+          state: response.data.state, // 可设置为简单的随机数加session用来校验
+          style: 'black', // 提供"black"、"white"可选。二维码的样式
+          href: '' // 外部css文件url，需要https
+        })
+      })
     },
 
     emailLogin() {
       this.dialogAtrr.showLoginType = 'email'
       this.showLogin()
+    },
+    loginCallback(name,token,openid){
+      if(openid != '') {
+        this.userInfo.openid = openid
+        this.showLogin()
+      } else {
+        this.setCookies(name, token)
+      }
     }
   }
 }
