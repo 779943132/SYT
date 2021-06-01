@@ -323,7 +323,7 @@ export default {
       this.showLogin()
     },
     loginCallback(name,token,openid){
-      if(openid != '') {
+      if(openid != null) {
         this.userInfo.openid = openid
         this.showLogin()
       } else {

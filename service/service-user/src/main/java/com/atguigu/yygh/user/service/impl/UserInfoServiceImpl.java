@@ -37,54 +37,76 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper,UserInfo> im
         if (!Objects.equals(rediscode, code)){
             throw new YyghException(ResultCodeEnum.CODE_ERROR);
         }
+
+
         //绑定邮箱
         UserInfo userInfo = null;
+        //根据邮箱查询看数据库是否有该用户
+        QueryWrapper<UserInfo> qw = new QueryWrapper<>();
+        qw.eq("email",email);
+        //判断是否为第一次登录
+        UserInfo userEmail = baseMapper.selectOne(qw);
+
         if(!StringUtils.isEmpty(loginVo.getOpenid())) {
             userInfo = this.selectWxInfoOpenId(loginVo.getOpenid());
             System.out.println(userInfo);
+
             if(null != userInfo) {
+                //邮箱已存在
+                if (userEmail!=null) {
+                    int openid = baseMapper.deleteOpenid(loginVo.getOpenid());
+                    System.out.println(openid);
+                    userEmail.setNickName(userInfo.getNickName());
+                    userEmail.setOpenid(userInfo.getOpenid());
+                    this.updateById(userEmail);
+                }else {
                     userInfo.setEmail(loginVo.getEmail());
                     this.updateById(userInfo);
+                }
+
+
             } else {
                 throw new YyghException(ResultCodeEnum.DATA_ERROR);
             }
         }
-        if (userInfo == null) {
-        QueryWrapper<UserInfo> qw = new QueryWrapper<>();
-        qw.eq("email",email);
-        //判断是否为第一次登录
-        userInfo = baseMapper.selectOne(qw);
-            System.out.println(userInfo);
+
+
+
         //为空，第一次，添加用户
-        if (userInfo == null) {
+        if (userEmail == null) {
             UserInfo data = new UserInfo();
             data.setName("");
             data.setStatus(1);
             data.setEmail(email);
             baseMapper.insert(data);
-            userInfo = data;
+            userEmail = data;
         }
-        }
+
+
+
         //不为空，校验看权限
-        if (userInfo.getStatus()==0){
+        if (userEmail.getStatus()==0){
             throw new YyghException(ResultCodeEnum.LOGIN_DISABLED_ERROR);
         }
+
+
         //返回登录后信息
         //返回登录用户名
         //返回token
 
         Map<String,Object> map = new HashMap<>();
-        String name = userInfo.getName();
+        String name = userEmail.getName();
         if (StringUtils.isEmpty(name)) {
-            name = userInfo.getNickName();
+            name = userEmail.getNickName();
         }
         if (StringUtils.isEmpty(name)){
-            name=userInfo.getEmail();
+            name=userEmail.getEmail();
         }
-        String token = JwtHelper.createToken(userInfo.getId(), userInfo.getName());
+        String token = JwtHelper.createToken(userEmail.getId(), userEmail.getName());
         map.put("name",name);
         map.put("token",token);
         return map;
+
     }
 
     @Override
