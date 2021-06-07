@@ -17,6 +17,20 @@ export default {
       url:`${api_name}/sendCode/${email}`,
       method:'get'
     })
+  },
+  //用户认证接口
+  saveUserAuth(userAuth){
+    return request({
+      url:`${api_name}/auth/userAuth`,
+      method:'post',
+      data: userAuth
+    })
+  },
+  //根据userid获取用户id
+  getUserInfo(){
+    return request({
+      url:`${api_name}/auth/getUserInfo`,
+      method:'get'
+    })
   }
-
 }

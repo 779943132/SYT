@@ -21,6 +21,15 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
@@ -963,6 +972,42 @@
       <library>
         <CLASSES>
           <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/org/hdrhistogram/HdrHistogram/2.1.9/HdrHistogram-2.1.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/org/springframework/boot/spring-boot-starter-mail/2.2.1.RELEASE/spring-boot-starter-mail-2.2.1.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/org/springframework/spring-context-support/5.2.1.RELEASE/spring-context-support-5.2.1.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/com/sun/mail/jakarta.mail/1.6.4/jakarta.mail-1.6.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

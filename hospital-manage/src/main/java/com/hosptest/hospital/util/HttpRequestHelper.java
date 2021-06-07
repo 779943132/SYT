@@ -3,6 +3,7 @@ package com.hosptest.hospital.util;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,16 +42,14 @@ public class HttpRequestHelper {
      * @return
      */
     public static String getSign(Map<String, Object> paramMap, String signKey) {
-        if(paramMap.containsKey("sign")) {
-            paramMap.remove("sign");
-        }
+        paramMap.remove("sign");
         TreeMap<String, Object> sorted = new TreeMap<>(paramMap);
         StringBuilder str = new StringBuilder();
         for (Map.Entry<String, Object> param : sorted.entrySet()) {
             str.append(param.getValue()).append("|");
         }
         str.append(signKey);
-        log.info("加密前：" + str.toString());
+        log.info("加密前：" + str);
         String md5Str = MD5.encrypt(str.toString());
         log.info("加密后：" + md5Str);
         return md5Str;
@@ -64,10 +63,7 @@ public class HttpRequestHelper {
     public static boolean isSignEquals(Map<String, Object> paramMap, String signKey) {
         String sign = (String)paramMap.get("sign");
         String md5Str = getSign(paramMap, signKey);
-        if(!sign.equals(md5Str)) {
-            return false;
-        }
-        return true;
+        return sign.equals(md5Str);
     }
 
     /**
@@ -94,7 +90,7 @@ public class HttpRequestHelper {
                         .append(param.getValue()).append("&");
             }
             log.info(String.format("--> 发送请求：post data %1s", postdata));
-            byte[] reqData = postdata.toString().getBytes("utf-8");
+            byte[] reqData = postdata.toString().getBytes(StandardCharsets.UTF_8);
             byte[] respdata = HttpUtil.doPost(url,reqData);
             result = new String(respdata);
             log.info(String.format("--> 应答结果：result data %1s", result));

@@ -24,11 +24,11 @@ public enum ResultCodeEnum {
     PROJECT_AMMOUNT_ERROR(503, "标的金额不一致")
     ;
 
-    private Integer code;
+    private final Integer code;
 
-    private String message;
+    private final String message;
 
-    private ResultCodeEnum(Integer code, String message) {
+    ResultCodeEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }

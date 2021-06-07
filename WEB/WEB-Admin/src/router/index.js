@@ -105,6 +105,29 @@ export const constantRouterMap = [
     ]
   },
   {
+    path:'/user',
+    component:Layout,
+    redirect:'/user/userInfo/list',
+    name:'userInfo',
+    meta:{ title:'用户管理', icon:'table'},
+    alwaysShow:true,
+    children:[
+      {
+        path:'userInfo/list',
+        name:'用户列表',
+        component:()=>import('@/views/user/userInfo/list'),
+        meta:{title:'用户列表', icon:'table'}
+      },
+      {
+        path: 'userInfo/show/:id',
+        name: '用户查看',
+        component: () =>import('@/views/user/userInfo/show'),
+        meta: { title: '用户查看' },
+        hidden: true
+      }
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
@@ -125,7 +148,7 @@ export const constantRouterMap = [
       }
     ]
   },
-  
+
   {
     path: '/form',
     component: Layout,

@@ -1,19 +1,13 @@
 package com.atguigu.yygh.hosp.service.impl;
 
-import com.alibaba.excel.util.CollectionUtils;
 import com.alibaba.fastjson.JSONObject;
-import com.atguigu.yygh.common.exception.YyghException;
-import com.atguigu.yygh.common.result.ResultCodeEnum;
 import com.atguigu.yygh.hosp.repository.ScheduleRepository;
 import com.atguigu.yygh.hosp.service.DepartmentService;
 import com.atguigu.yygh.hosp.service.HospitalService;
 import com.atguigu.yygh.hosp.service.ScheduleService;
-import com.atguigu.yygh.model.hosp.BookingRule;
-import com.atguigu.yygh.model.hosp.Hospital;
 import com.atguigu.yygh.model.hosp.Schedule;
 import com.atguigu.yygh.vo.hosp.BookingScheduleRuleVo;
 import com.atguigu.yygh.vo.hosp.ScheduleQueryVo;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
 import org.springframework.beans.BeanUtils;
@@ -26,7 +20,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class ScheduleServiceImpl implements ScheduleService {

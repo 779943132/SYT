@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/service-client/service-cmn-client/service-cmn-client.iml" filepath="$PROJECT_DIR$/service-client/service-cmn-client/service-cmn-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-gateway/service-gateway.iml" filepath="$PROJECT_DIR$/service-gateway/service-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-hosp/service-hosp.iml" filepath="$PROJECT_DIR$/service/service-hosp/service-hosp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service-oss/service-oss.iml" filepath="$PROJECT_DIR$/service/service-oss/service-oss.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-user/service-user.iml" filepath="$PROJECT_DIR$/service/service-user/service-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/service-util/service-util.iml" filepath="$PROJECT_DIR$/common/service-util/service-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/yygh-parent.iml" filepath="$PROJECT_DIR$/yygh-parent.iml" />

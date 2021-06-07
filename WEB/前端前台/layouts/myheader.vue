@@ -211,7 +211,6 @@ export default {
       }
       this.dialogAtrr.loginBtn = '正在提交...'
       userInfoApi.login(this.userInfo).then(response => {
-        console.log(response.data)
         // 登录成功 设置cookie
         this.setCookies(response.data.name, response.data.token)
       }).catch(e => {
@@ -282,7 +281,7 @@ export default {
       let token = cookie.get('token')
       if (token) {
         this.name = cookie.get('name')
-        console.log(this.name)
+
       }
     },
 

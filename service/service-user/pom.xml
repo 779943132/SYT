@@ -10,6 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service-user</artifactId>
+    <version>1.0</version>
+    <name>service-user</name>
+    <packaging>jar</packaging>
+    <description>service-user</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.atguigu.yygh</groupId>
+            <artifactId>service-cmn-client</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 
 </project>

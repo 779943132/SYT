@@ -43,7 +43,7 @@
             @click="removeDataById(scope.row.id)">删除 </el-button>
           <!-- 锁定 -->
           <el-button
-            v-if="scope.row.status==1"
+            v-if="scope.row.status===1"
             type="info"
             size="mini"
             icon="el-icon-close"

@@ -53,21 +53,21 @@ public class HttpClientUtils {
         client = HttpClients.custom().setConnectionManager(cm).build();
     }
 
-    public static String postParameters(String url, String parameterStr) throws ConnectTimeoutException, SocketTimeoutException, Exception{
+    public static String postParameters(String url, String parameterStr) throws Exception{
         return post(url,parameterStr,"application/x-www-form-urlencoded",charset,connTimeout,readTimeout);
     }
 
-    public static String postParameters(String url, String parameterStr,String charset, Integer connTimeout, Integer readTimeout) throws ConnectTimeoutException, SocketTimeoutException, Exception{
+    public static String postParameters(String url, String parameterStr,String charset, Integer connTimeout, Integer readTimeout) throws Exception{
         return post(url,parameterStr,"application/x-www-form-urlencoded",charset,connTimeout,readTimeout);
     }
 
-    public static String postParameters(String url, Map<String, String> params) throws ConnectTimeoutException,
-            SocketTimeoutException, Exception {
+    public static String postParameters(String url, Map<String, String> params) throws
+            Exception {
         return postForm(url, params, null, connTimeout, readTimeout);
     }
 
-    public static String postParameters(String url, Map<String, String> params, Integer connTimeout,Integer readTimeout) throws ConnectTimeoutException,
-            SocketTimeoutException, Exception {
+    public static String postParameters(String url, Map<String, String> params, Integer connTimeout,Integer readTimeout) throws
+            Exception {
         return postForm(url, params, null, connTimeout, readTimeout);
     }
 
@@ -200,7 +200,7 @@ public class HttpClientUtils {
      * 发送一个 GET 请求
      */
     public static String get(String url, String charset, Integer connTimeout,Integer readTimeout)
-            throws ConnectTimeoutException,SocketTimeoutException, Exception {
+            throws Exception {
 
         HttpClient client = null;
         HttpGet get = new HttpGet(url);

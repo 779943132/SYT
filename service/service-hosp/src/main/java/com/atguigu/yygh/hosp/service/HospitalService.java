@@ -1,6 +1,5 @@
 package com.atguigu.yygh.hosp.service;
 
-import com.atguigu.yygh.model.hosp.Department;
 import com.atguigu.yygh.model.hosp.Hospital;
 import com.atguigu.yygh.vo.hosp.HospitalQueryVo;
 import org.springframework.data.domain.Page;

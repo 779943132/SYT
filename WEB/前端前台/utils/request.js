@@ -25,7 +25,7 @@ service.interceptors.response.use(
   response => {
     if (response.data.code === 208) {
       loginEvent.$emit('loginDialogEvent')
-      return
+
     } else {
       if (response.data.code !== 200) {
         Message({

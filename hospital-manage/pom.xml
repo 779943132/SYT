@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.atguigu.yygh</groupId>
     <artifactId>hospital-manage</artifactId>
     <version>1.0</version>
 

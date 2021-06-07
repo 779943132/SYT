@@ -96,6 +96,7 @@ import '~/assets/css/hospital.css'
 
 import hospitalApi from '@/api/hosp'
 import cookie from 'js-cookie'
+import userInfo from '@/api/UserInfo'
 
 export default {
   data() {
@@ -139,6 +140,14 @@ export default {
         loginEvent.$emit('loginDialogEvent')
         return
       }
+      //判断用户是否完成认证
+      userInfo.getUserInfo().then(response=>{
+        let authStatus = response.data.authStatus
+        //authStatus不等于2，表示没有认证成功,跳转认证
+        if (!authStatus || authStatus!==2){
+          window.location.href = "/user"
+        }
+      })
       window.location.href = '/hospital/schedule?hoscode=' + this.hospital.hoscode + "&depcode="+ depcode
     },
   }

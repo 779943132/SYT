@@ -106,9 +106,12 @@ under the License.
       <module filepath="$PROJECT_DIR$/service/service.iml"/>
       <module filepath="$PROJECT_DIR$/service/service-hosp/service-hosp.iml"/>
       <module filepath="$PROJECT_DIR$/service/service-cmn/service-cmn.iml"/>
+      <module filepath="$PROJECT_DIR$/service/service-user/service-user.iml"/>
+      <module filepath="$PROJECT_DIR$/service/service-oss/service-oss.iml"/>
       <module filepath="$PROJECT_DIR$/hospital-manage/hospital-manage.iml"/>
       <module filepath="$PROJECT_DIR$/service-client/service-client.iml"/>
       <module filepath="$PROJECT_DIR$/service-client/service-cmn-client/service-cmn-client.iml"/>
+      <module filepath="$PROJECT_DIR$/service-gateway/service-gateway.iml"/>
     </modules> 
   </component>  
   <UsedPathMacros> 

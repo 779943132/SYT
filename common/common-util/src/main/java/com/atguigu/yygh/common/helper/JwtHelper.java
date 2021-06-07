@@ -7,9 +7,9 @@ import java.util.Date;
 
 public class JwtHelper {
     //过期时间为30分种
-    private static long tokenExpiration = 24*60*60*1000;
+    private static final long tokenExpiration = 24*60*60*1000;
     //签名密钥
-    private static String tokenSignKey = "123456";
+    private static final String tokenSignKey = "123456";
 
     public static String createToken(Long userId, String userName) {
         String token = Jwts.builder()

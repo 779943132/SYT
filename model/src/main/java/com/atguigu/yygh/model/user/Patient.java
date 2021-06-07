@@ -21,9 +21,9 @@ import java.util.Date;
 @ApiModel(description = "Patient")
 @TableName("patient")
 public class Patient extends BaseEntity {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@ApiModelProperty(value = "用户id")
 	@TableField("user_id")
 	private Long userId;
@@ -49,9 +49,9 @@ public class Patient extends BaseEntity {
 	@TableField("birthdate")
 	private Date birthdate;
 
-	@ApiModelProperty(value = "手机")
-	@TableField("phone")
-	private String phone;
+	@ApiModelProperty(value = "邮箱")
+	@TableField("email")
+	private String email;
 
 	@ApiModelProperty(value = "是否结婚")
 	@TableField("is_marry")
@@ -85,8 +85,8 @@ public class Patient extends BaseEntity {
 	@TableField("contacts_certificates_no")
 	private String contactsCertificatesNo;
 
-	@ApiModelProperty(value = "联系人手机")
-	@TableField("contacts_phone")
+	@ApiModelProperty(value = "联系人邮箱")
+	@TableField("contacts_email")
 	private String contactsPhone;
 
 	@ApiModelProperty(value = "是否有医保")

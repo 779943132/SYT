@@ -10,6 +10,8 @@
         <module>service</module>
         <module>service/service-hosp</module>
         <module>service/service-cmn</module>
+        <module>service/service-user</module>
+        <module>service/service-oss</module>
         <module>hospital-manage</module>
         <module>service-client</module>
         <module>service-client/service-cmn-client</module>

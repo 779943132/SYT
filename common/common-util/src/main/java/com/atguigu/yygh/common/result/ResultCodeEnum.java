@@ -44,10 +44,10 @@ public enum ResultCodeEnum {
     HOSPITAL_LOCK(320, "医院被锁定，暂时不能访问"),
     ;
 
-    private Integer code;
-    private String message;
+    private final Integer code;
+    private final String message;
 
-    private ResultCodeEnum(Integer code, String message) {
+    ResultCodeEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }

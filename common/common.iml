@@ -11,15 +11,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/com/alibaba/fastjson/1.2.29/fastjson-1.2.29.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/io/springfox/springfox-swagger2/2.7.0/springfox-swagger2-2.7.0.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -611,6 +602,42 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/org/springframework/boot/spring-boot-starter-mail/2.2.1.RELEASE/spring-boot-starter-mail-2.2.1.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/org/springframework/spring-context-support/5.2.1.RELEASE/spring-context-support-5.2.1.RELEASE.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/com/sun/mail/jakarta.mail/1.6.4/jakarta.mail-1.6.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://D:/OneDrive/OneDrive - jiaboke/SDE/maven-3.6.3/pojo/com/sun/activation/jakarta.activation/1.2.1/jakarta.activation-1.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.springframework.boot:spring-boot-starter-web:2.2.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.2.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.2.1.RELEASE" level="project" />
@@ -681,6 +708,5 @@
     <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.mapstruct:mapstruct:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Maven: io.springfox:springfox-swagger-ui:2.7.0" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.29" level="project" />
   </component>
 </module>
