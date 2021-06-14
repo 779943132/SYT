@@ -101,6 +101,7 @@ export default {
     fetchData(page = 1) {
       // 异步获取远程数据（ajax）
       this.page = page
+      console.log(this.searchObj)
       userInfoApi.getPageList(this.page, this.limit, this.searchObj).then(
         response => {
           this.list = response.data.records

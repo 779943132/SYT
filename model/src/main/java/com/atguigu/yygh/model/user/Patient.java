@@ -87,7 +87,7 @@ public class Patient extends BaseEntity {
 
 	@ApiModelProperty(value = "联系人邮箱")
 	@TableField("contacts_email")
-	private String contactsPhone;
+	private String contactsEmail;
 
 	@ApiModelProperty(value = "是否有医保")
 	@TableField("is_insure")

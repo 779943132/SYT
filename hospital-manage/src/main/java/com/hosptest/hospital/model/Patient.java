@@ -18,9 +18,9 @@ import lombok.Data;
 @ApiModel(description = "Patient")
 @TableName("patient")
 public class Patient extends BaseEntity {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@ApiModelProperty(value = "用户id")
 	@TableField("user_id")
 	private Long userId;
@@ -46,9 +46,9 @@ public class Patient extends BaseEntity {
 	@TableField("birthdate")
 	private String birthdate;
 
-	@ApiModelProperty(value = "手机")
-	@TableField("phone")
-	private String phone;
+	@ApiModelProperty(value = "邮箱")
+	@TableField("email")
+	private String email;
 
 	@ApiModelProperty(value = "是否结婚")
 	@TableField("is_marry")
@@ -83,8 +83,8 @@ public class Patient extends BaseEntity {
 	private String contactsCertificatesNo;
 
 	@ApiModelProperty(value = "联系人手机")
-	@TableField("contacts_phone")
-	private String contactsPhone;
+	@TableField("contacts_email")
+	private String contactsEmail;
 
 }
 

@@ -23,4 +23,6 @@ public interface UserInfoService extends IService<UserInfo> {
 
 
     Map<String, Object> show(Long id);
+
+    void approval(Long id, Integer status);
 }

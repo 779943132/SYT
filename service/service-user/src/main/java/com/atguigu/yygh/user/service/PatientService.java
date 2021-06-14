@@ -8,5 +8,5 @@ import java.util.List;
 public interface PatientService extends IService<Patient> {
     List<Patient> findAllById(Long userId);
 
-    Patient getPatientId(String id);
+    Patient getPatientId(Long id);
 }

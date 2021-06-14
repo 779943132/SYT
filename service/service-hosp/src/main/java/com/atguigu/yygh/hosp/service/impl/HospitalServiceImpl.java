@@ -6,7 +6,6 @@ import com.atguigu.yygh.hosp.repository.HospitalRepository;
 import com.atguigu.yygh.hosp.service.HospitalService;
 import com.atguigu.yygh.model.hosp.Hospital;
 import com.atguigu.yygh.vo.hosp.HospitalQueryVo;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
@@ -131,6 +130,7 @@ public class HospitalServiceImpl implements HospitalService {
         return hospitalRepository.findHospitalByHosnameLike(hosname);
     }
 
+
     @Override
     public Map<String, Object> item(String hoscode) {
         Hospital hospital = hospitalRepository.getHospitalByHoscode(hoscode);
@@ -148,4 +148,5 @@ public class HospitalServiceImpl implements HospitalService {
         hosp.put("bookingRule",hospital.getBookingRule());
         return hosp;
     }
+
 }

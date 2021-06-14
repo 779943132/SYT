@@ -2,7 +2,6 @@ package com.hosptest.hospital.controller;
 
 import com.hosptest.hospital.service.ApiService;
 import com.hosptest.hospital.service.HospitalService;
-import com.hosptest.hospital.util.*;
 import com.hosptest.hospital.util.HttpRequestHelper;
 import com.hosptest.hospital.util.Result;
 import com.hosptest.hospital.util.ResultCodeEnum;
@@ -43,7 +42,6 @@ public class HospitalController {
 			if(!HttpRequestHelper.isSignEquals(paramMap, apiService.getSignKey())) {
 				throw new YyghException(ResultCodeEnum.SIGN_ERROR);
 			}
-
 			Map<String, Object> resultMap = hospitalService.submitOrder(paramMap);
 			return Result.ok(resultMap);
 		} catch (YyghException e) {

@@ -32,7 +32,7 @@ public class PatientServiceImpl extends ServiceImpl<PatientMapper, Patient> impl
 
     //根据id获取就诊人
     @Override
-    public Patient getPatientId(String id) {
+    public Patient getPatientId(Long id) {
         return this.packPatient(baseMapper.selectById(id));
     }
 

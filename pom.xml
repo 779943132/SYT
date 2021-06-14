@@ -16,6 +16,7 @@
         <module>service-client</module>
         <module>service-client/service-cmn-client</module>
         <module>service-gateway</module>
+        <module>service/service-order</module>
     </modules>
 
     <parent>

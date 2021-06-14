@@ -7,7 +7,7 @@ export default {
       //使用模板字符串取值
       url:`${api_name}/${page}/${limit}`,
       //请求方式
-      method:"get",
+      method:"post",
       data:searchObj
     })
   },
@@ -24,6 +24,13 @@ export default {
   show(id) {
     return request({
       url: `${api_name}/show/${id}`,
+      method: 'get'
+    })
+  },
+  //认证审批
+  approval(id,authStatus) {
+    return request({
+      url: `${api_name}/approval/${id}/${authStatus}`,
       method: 'get'
     })
   }

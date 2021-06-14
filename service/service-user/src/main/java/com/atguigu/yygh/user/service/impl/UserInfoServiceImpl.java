@@ -153,18 +153,25 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         //对条件进行非空判断
         QueryWrapper<UserInfo> qw = new QueryWrapper<>();
         if (!StringUtils.isEmpty(keyword)) {
-            qw.like("name",keyword);
+            //正则表达式判断是邮箱还是名字
+            String reg="^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
+            if (keyword.matches(reg)) {
+
+                qw.like("email", keyword);
+            }else {
+                qw.like("name", keyword);
+            }
         }
         if (!StringUtils.isEmpty(status)) {
             qw.eq("status",status);
         }
-        if (!StringUtils.isEmpty(keyword)) {
+        if (!StringUtils.isEmpty(authStatus)) {
             qw.eq("auth_status",authStatus);
         }
         if (!StringUtils.isEmpty(createTimeBegin)) {
             qw.ge("create_time",createTimeBegin);
         }
-        if (!StringUtils.isEmpty(keyword)) {
+        if (!StringUtils.isEmpty(createTimeEnd)) {
             qw.le("create_time",createTimeEnd);
         }
         Page<UserInfo> userInfoPage = baseMapper.selectPage(pageParam, qw);
@@ -191,6 +198,15 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         List<Patient> allById = patientService.findAllById(id);
         map.put("patientList",allById);
         return map;
+    }
+
+    @Override//2表示通过，-1表示不通过
+    public void approval(Long id, Integer status) {
+        if (status == 2|| status==-1) {
+            UserInfo userInfo = baseMapper.selectById(id);
+            userInfo.setAuthStatus(status);
+            this.updateById(userInfo);
+        }
     }
 
     //代号处理

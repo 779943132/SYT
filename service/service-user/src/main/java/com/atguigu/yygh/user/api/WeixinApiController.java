@@ -39,6 +39,7 @@ public class WeixinApiController {
             Map<String, Object> map = new HashMap<>();
             map.put("appid", ConstantPropertiesUtil.WX_OPEN_APP_ID);
             map.put("scope", "snsapi_login");
+            //map.put("scope", "snsapi_userinfo");
             String wxOpenRedirectUrl = URLEncoder.encode(ConstantPropertiesUtil.WX_OPEN_REDIRECT_URL, "utf-8");
             map.put("redirect_uri", wxOpenRedirectUrl);
             map.put("state", System.currentTimeMillis() + "");

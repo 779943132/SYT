@@ -21,8 +21,8 @@ public class UserController {
     @Autowired
     private UserInfoService userInfoService;
     @ApiOperation(value = "用户列表")
-    @GetMapping("{page}/{limit}")
-    public Result list(@PathVariable Long page, @PathVariable Long limit, @RequestBody(required = false) UserInfoQueryVo userInfoQueryVo){
+    @PostMapping("{page}/{limit}")
+    public Result list(@PathVariable Long page, @PathVariable Long limit,@RequestBody(required = false) UserInfoQueryVo userInfoQueryVo){
         Page<UserInfo> pageParam = new Page<>(page,limit);
         IPage<UserInfo> pageModel=userInfoService.selectPage(pageParam,userInfoQueryVo);
         return Result.ok(pageModel);
@@ -40,5 +40,12 @@ public class UserController {
     public Result show(@PathVariable Long id){
         Map<String,Object> map = userInfoService.show(id);
         return Result.ok(map);
+    }
+
+    @ApiOperation(value = "用户认证审批")
+    @GetMapping("approval/{id}/{status}")
+    public Result approval(@PathVariable Long id, @PathVariable Integer status){
+        userInfoService.approval(id,status);
+        return Result.ok();
     }
 }

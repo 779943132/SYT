@@ -1,6 +1,5 @@
 package com.atguigu.yygh.vo.hosp;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -29,6 +28,9 @@ public class ScheduleOrderVo {
 
 	@ApiModelProperty(value = "医生职称")
 	private String title;
+
+	@ApiModelProperty(value = "医生职称")
+	private String docname;
 
 	@ApiModelProperty(value = "安排日期")
 	private Date reserveDate;
