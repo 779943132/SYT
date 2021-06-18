@@ -25,6 +25,7 @@ public class SmsReceiver {
             key = {MqConst.ROUTING_MSM_ITEM}
     ))
     public void send(EmailVo emailVo, Message message, Channel channel) {
+        System.out.println("email"+emailVo);
         mailCode.send(emailVo);
     }
 }

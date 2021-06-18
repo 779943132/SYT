@@ -7,8 +7,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@EnableFeignClients
 @ComponentScan(basePackages = "com.atguigu")
+@EnableFeignClients
 public class ServiceOSSApplication {
     public static void main(String[] args) {
         SpringApplication.run(ServiceOSSApplication.class,args);

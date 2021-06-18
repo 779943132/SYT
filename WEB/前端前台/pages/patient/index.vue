@@ -49,7 +49,7 @@
           </el-card>
           <div class="item-add-wrapper v-card clickable" @click="add()">
               <div class="">
-                  <div>+ 添加就诊人</div>
+                  <div>添加就诊人</div>
               </div>
           </div>
           </div>

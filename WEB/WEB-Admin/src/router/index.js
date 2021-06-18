@@ -29,11 +29,11 @@ export const constantRouterMap = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
-    name: 'Dashboard',
+    name: '管理员信息',
     hidden: true,
     children: [{
       path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
+      component: () => import('@/views/dashboard/index'),
     }]
   },
   //医院设置路由
@@ -130,6 +130,47 @@ export const constantRouterMap = [
         name: '认证审批列表',
         component: () =>import('@/views/user/userInfo/authList'),
         meta: { title: '认证审批列表', icon: 'table' }
+      }
+    ]
+  },
+  //数据字典路由
+  {
+    path: '/order',
+    component: Layout,
+    redirect: '/order/list',
+    name: '订单管理',
+    meta: { title: '订单管理', icon: 'example' },
+    alwaysShow:true,
+    children: [
+      {
+        path: 'list',
+        name: '订单列表',
+        component: () => import('@/views/order/orderList'),
+        meta: { title: '订单列表', icon: 'table' }
+      },
+      {
+        path: 'orderShow/:id',
+        name: '订单详情',
+        component: () => import('@/views/order/show'),
+        meta: { title: '详情', icon: 'tree' },
+        hidden: true
+      },
+    ]
+  },
+  //统计管理
+  {
+    path: '/statistics',
+    component: Layout,
+    redirect: '/statistics/index',
+    name: '统计管理',
+    meta: { title: '统计管理', icon: 'example' },
+    alwaysShow:true,
+    children: [
+      {
+        path: 'index',
+        name: '预约统计',
+        component: () => import('@/views/statistics/index'),
+        meta: { title: '预约统计', icon: 'table' }
       }
     ]
   },

@@ -12,6 +12,7 @@
     <modules>
         <module>service-user-client</module>
         <module>service-hosp-client</module>
+        <module>service-oss-client</module>
     </modules>
     <artifactId>service-client</artifactId>
     <packaging>pom</packaging>

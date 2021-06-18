@@ -79,6 +79,7 @@
     <orderEntry type="library" name="Maven: org.springframework.integration:spring-integration-core:5.2.1.RELEASE" level="project" />
     <orderEntry type="module" module-name="service-user-client" />
     <orderEntry type="module" module-name="service-hosp-client" />
+    <orderEntry type="library" name="Maven: com.github.wxpay:wxpay-sdk:0.0.3" level="project" />
     <orderEntry type="module" module-name="model" />
     <orderEntry type="module" module-name="service-util" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.2.1.RELEASE" level="project" />

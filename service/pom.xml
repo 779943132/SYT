@@ -12,6 +12,9 @@
     <artifactId>service</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
+    <modules>
+        <module>service-task</module>
+    </modules>
 
     <dependencies>
         <dependency>

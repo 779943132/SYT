@@ -33,5 +33,12 @@ export default {
       url: `${api_name}/approval/${id}/${authStatus}`,
       method: 'get'
     })
+  },
+  updateUserAvatar(obj){
+    return request({
+      url: `/admin/user/updateUserAvatar`,
+      method: 'post',
+      data : obj
+    })
   }
 }
