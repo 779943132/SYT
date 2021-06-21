@@ -157,10 +157,13 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper,Schedule> im
     }
     //封装排班详情其他值 医院名称，科室名称，日期对应星期
     private Schedule packageSchedule(Schedule schedule) {
-        schedule.getParam().put("hosname",hospitalService.getHoscodeName(schedule.getHoscode()));
-        schedule.getParam().put("depname",departmentService.getDepName(schedule.getHoscode(),schedule.getDepcode()));
-        schedule.getParam().put("dayofWeek",this.getDayOfWeek(new DateTime(schedule.getWorkDate())));
-        return schedule;
+        if (schedule != null) {
+            schedule.getParam().put("hosname",hospitalService.getHoscodeName(schedule.getHoscode()));
+            schedule.getParam().put("depname",departmentService.getDepName(schedule.getHoscode(),schedule.getDepcode()));
+            schedule.getParam().put("dayofWeek",this.getDayOfWeek(new DateTime(schedule.getWorkDate())));
+            return schedule;
+        }
+        return null;
     }
 
     //获取可排班的数据
@@ -299,8 +302,10 @@ public class ScheduleServiceImpl extends ServiceImpl<ScheduleMapper,Schedule> im
     //根据排班id获取排班信息
     @Override
     public Schedule getScheduleId(String scheduleId) {
-
-        return this.packageSchedule(scheduleRepository.findScheduleById(scheduleId));
+        if (scheduleId != null) {
+            return this.packageSchedule(scheduleRepository.findScheduleById(scheduleId));
+        }
+        return null;
     }
 
     @Override

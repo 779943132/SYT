@@ -22,7 +22,6 @@
         <module name="service-cmn" />
         <module name="service-user" />
         <module name="model" />
-        <module name="service-oss-client" />
         <module name="hospital-manage" />
       </profile>
     </annotationProcessing>

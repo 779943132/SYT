@@ -35,6 +35,7 @@ public class PatientApiController {
     @PostMapping("auth/save")
     public Result savePatient(@RequestBody Patient patient,HttpServletRequest request){
         Long userId = AuthContextHolder.getUserId(request);
+        patient.setUserId(userId);
         patientService.save(patient);
         return Result.ok();
     }

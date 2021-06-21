@@ -2,7 +2,7 @@
     <div   class="header-container">
           <div   class="wrapper">
           <!--   logo   -->
-                      <div class="left-wrapper   v-link   selected">
+                      <div class="left-wrapper   v-link   selected" onclick="javascript:window.location='/'">
                                   <img style="width:   50px"  width="50" height="50" src="~assets/images/logo.png">
                                   <span class="text">预约挂号统一平台</span>
                       </div>

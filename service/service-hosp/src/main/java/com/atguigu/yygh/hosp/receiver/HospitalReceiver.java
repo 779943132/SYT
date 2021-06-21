@@ -32,15 +32,19 @@ public class HospitalReceiver {
             key = {MqConst.ROUTING_ORDER}
     ))
     public void receiver(OrderMqVo orderMqVo, Message message, Channel channel) throws IOException {
-        //下单成功更新预约数
-        Schedule schedule = scheduleService.getScheduleId(orderMqVo.getScheduleId());
-        schedule.setReservedNumber(orderMqVo.getReservedNumber());
-        schedule.setAvailableNumber(orderMqVo.getAvailableNumber());
-        scheduleService.update(schedule);
-        //发送短信
-        EmailVo emailVo = orderMqVo.getEmailVo();
-        if(null != emailVo) {
-            rabbitService.sendMessage(MqConst.EXCHANGE_DIRECT_MSM, MqConst.ROUTING_MSM_ITEM, emailVo);
+        if (orderMqVo != null) {
+            //下单成功更新预约数
+            Schedule schedule = scheduleService.getScheduleId(orderMqVo.getScheduleId());
+            if (schedule != null) {
+                schedule.setReservedNumber(orderMqVo.getReservedNumber());
+                schedule.setAvailableNumber(orderMqVo.getAvailableNumber());
+                scheduleService.update(schedule);
+            }
+            //发送短信
+            EmailVo emailVo = orderMqVo.getEmailVo();
+            if(null != emailVo) {
+                rabbitService.sendMessage(MqConst.EXCHANGE_DIRECT_MSM, MqConst.ROUTING_MSM_ITEM, emailVo);
+            }
         }
     }
 }

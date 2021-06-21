@@ -16,7 +16,6 @@
       <module fileurl="file://$PROJECT_DIR$/service-client/service-hosp-client/service-hosp-client.iml" filepath="$PROJECT_DIR$/service-client/service-hosp-client/service-hosp-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-order/service-order.iml" filepath="$PROJECT_DIR$/service/service-order/service-order.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-oss/service-oss.iml" filepath="$PROJECT_DIR$/service/service-oss/service-oss.iml" />
-      <module fileurl="file://$PROJECT_DIR$/service-client/service-oss-client/service-oss-client.iml" filepath="$PROJECT_DIR$/service-client/service-oss-client/service-oss-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-task/service-task.iml" filepath="$PROJECT_DIR$/service/service-task/service-task.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service-user/service-user.iml" filepath="$PROJECT_DIR$/service/service-user/service-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-client/service-user-client/service-user-client.iml" filepath="$PROJECT_DIR$/service-client/service-user-client/service-user-client.iml" />

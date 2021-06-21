@@ -48,7 +48,6 @@ public class UserInfoApiController {
         }
         //得不到生成邮件发送，设置有效时间
         // 判断验证码是否一致
-        MyConde emailcode = new MyConde();
         //发送验证码
         code = MyConde.generateVerCode();
         Boolean aBoolean = mailCode.sendCode(email, code);
