@@ -28,9 +28,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://jiacloud.ml:3306/yygh_manage?characterEncoding=utf-8&useSSL=false
-    username: root
-    password: jiachenlin
+    url: jdbc:mysql://:3306/yygh_manage?characterEncoding=utf-8&useSSL=false
+    username: 
+    password: 
     hikari:
       connection-test-query: SELECT 1
       connection-timeout: 600000
