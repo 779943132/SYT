@@ -15,3 +15,7 @@
 前端技术：vue<br>
 后台管理：element-ui-admin框架+element-ui组件<br>
 前台技术：nuxt框架+element-ui组件<br>
+
+## 前端代码在WEB目录，Utils目录存放的是nacos本体，启动项目前要把nacos启动
+## 这个项目已经去除掉了所有敏感信息，如数据库地址密码等，想要运行起来请先使用Utils中的sql把数据库搭建好，和在service-user中设置好邮箱信息
+## 再把user模块中mycode中信息进行修改，就差不多能运行了，如果遇见什么问题，可以留言给我
