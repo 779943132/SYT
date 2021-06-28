@@ -1,7 +1,0 @@
-com\atguigu\yygh\cmn\config\HospConfig.class
-com\atguigu\yygh\cmn\listener\DictListener.class
-com\atguigu\yygh\cmn\mapper\DictMapper.class
-com\atguigu\yygh\cmn\service\DictService.class
-com\atguigu\yygh\cmn\service\impl\DictServiceImpl.class
-com\atguigu\yygh\cmn\ServiceCmnApplication.class
-com\atguigu\yygh\cmn\controller\DictController.class
